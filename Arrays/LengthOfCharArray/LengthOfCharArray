@@ -1,0 +1,8 @@
+#include <stdio.h>
+
+int main() {
+    char array[8]= {'a','b','c','d','e','f','g','h'};
+    int lengthOfArray = sizeof(array); // size of 1 char is 1 byte so the total array size is equal to the length of the array or we can use sizeof(array)/sizeof(array[i])
+    printf("Length of char array: %d\n",lengthOfArray);
+    return 0;
+}

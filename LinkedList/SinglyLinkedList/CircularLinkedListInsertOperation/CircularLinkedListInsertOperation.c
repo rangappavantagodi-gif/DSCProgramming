@@ -107,7 +107,7 @@ void display(struct NODE *head){
 //Main function    
 int main() {
     struct NODE *head = NULL;
-    int n,value,i;
+    int n,value,i,pos;
     
     printf("How many nodes?\n");
     scanf("%d",&n);
@@ -119,6 +119,20 @@ int main() {
     }
     
     printf("Circular Singly Linked List:\n");
+    display(head);
+    
+    printf("Enter the value of node to insert at begin:");
+    scanf("%d",&value);
+    head = insertBegin(head,value);
+    
+    printf("Enter the position to insert new node:");
+    scanf("%d",&pos);
+    
+    printf("Enter the value of node to insert at position:");
+    scanf("%d",&value);
+    head = insertAtPosition(head,value,pos);
+    
+    printf("Circular Singly Linked List after insertion:\n");
     display(head);
     return 0;
 }

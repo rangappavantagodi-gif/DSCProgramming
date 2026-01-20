@@ -2,89 +2,93 @@ Circular Singly Linked List in C
 📌 Overview
 
 This program demonstrates the implementation of a Circular Singly Linked List in C.
-In a circular linked list, the last node points back to the first node (head), forming a loop.
+In a circular linked list, the last node points back to the first node (head), forming a loop. This structure is useful in applications like round-robin scheduling, circular queues, and buffer management.
 
 The program supports:
 
 Creating nodes dynamically
 
-Inserting nodes at different positions
+Inserting nodes at the end
+
+Inserting nodes at the beginning
+
+Inserting nodes at a specific position
 
 Displaying the circular linked list
 
-🧱 Data Structure Used
-Circular Singly Linked List
-
-Each node contains:
-
-data → integer value
-
-next → pointer to the next node
-
-struct NODE{
+🧩 Data Structure Used
+struct NODE {
     int data;
     struct NODE *next;
 };
 
-⚙️ Operations Implemented
-1️⃣ Create Node
 
-Dynamically allocates memory using malloc
+data → Stores the integer value of the node
 
-Initializes data and next pointer
+next → Pointer to the next node (points back to head for the last node)
 
-2️⃣ Insert at End
+⚙️ Functions Description
+1. createNode(int value)
 
-Adds a new node at the end of the list
+Dynamically allocates memory for a new node
 
-Maintains circularity by linking the last node to head
+Initializes node data and pointer
 
-3️⃣ Insert at Beginning
+Terminates the program if memory allocation fails
 
-Inserts a new node before the current head
+2. insertEnd(struct NODE *head, int value)
 
-Updates the last node’s next pointer
+Inserts a new node at the end of the circular linked list
 
-Updates head to the new node
+If the list is empty, the node points to itself
 
-4️⃣ Insert at a Given Position
+3. insertBegin(struct NODE *head, int value)
 
-Inserts a node at a specified 1-based position
+Inserts a new node at the beginning
 
-Handles edge cases like:
+Updates the last node to point to the new head
 
-Inserting at position 1
+4. insertAtPosition(struct NODE *head, int value, int pos)
 
-Invalid positions
+Inserts a node at a given 1-based position
 
-5️⃣ Display List
+Handles invalid positions gracefully
 
-Traverses the list using a do–while loop
+5. display(struct NODE *head)
 
-Stops traversal when it reaches the head again
+Displays all elements of the circular linked list
 
-🧠 Algorithm (Brief)
+Traverses the list until it reaches the head again
 
-Initialize head as NULL
+▶️ Program Flow
 
-Insert nodes using insertEnd
+User enters the number of nodes
 
-Traverse the list until the pointer comes back to head
+Nodes are inserted at the end
 
-Print each node’s data
+The list is displayed
 
-⏱️ Time Complexity
-Operation	Complexity
-Insert at Beginning	O(n)
-Insert at End	O(n)
-Insert at Position	O(n)
-Display	O(n)
-🖥️ Sample Output
+User inserts a node at the beginning
+
+User inserts a node at a specific position
+
+Updated list is displayed
+
+🧪 Sample Output
 How many nodes?
 3
-Enter the value of node 1: 10
-Enter the value of node 2: 20
-Enter the value of node 3: 30
-
+Enter the value of node 1:10
+Enter the value of node 2:20
+Enter the value of node 3:30
 Circular Singly Linked List:
 10->20->30->back to head
+
+Enter the value of node to insert at begin:5
+Enter the position to insert new node:3
+Enter the value of node to insert at position:15
+Circular Singly Linked List after insertion:
+5->10->15->20->30->back to head
+
+🛠️ How to Compile and Run
+gcc circular_linked_list.c -o circular
+./circular
